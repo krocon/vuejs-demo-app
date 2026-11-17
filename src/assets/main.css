@@ -1,0 +1,46 @@
+/* Fertiges Styling der Merkliste – im Video nicht getippt. */
+:root {
+  --green: #42b883;
+  --navy: #35495e;
+  font-family: system-ui, sans-serif;
+  color: #213547;
+  background: #f4f6f8;
+}
+body { margin: 0; }
+#app {
+  max-width: 30rem;
+  margin: 3rem auto;
+  padding: 1.5rem 2rem 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(33, 53, 71, 0.12);
+}
+h1 { margin: 0 0 1rem; color: var(--navy); }
+form { display: flex; gap: 0.5rem; }
+input:not([type]) {
+  flex: 1;
+  padding: 0.55rem 0.7rem;
+  font: inherit;
+  border: 1px solid #c9d1d9;
+  border-radius: 8px;
+}
+button {
+  padding: 0.55rem 0.9rem;
+  font: inherit;
+  color: #fff;
+  background: var(--green);
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+button:disabled { opacity: 0.45; cursor: default; }
+ul { margin: 0; padding: 0; list-style: none; }
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.45rem 0;
+  border-top: 1px solid #eef1f4;
+}
+li button { padding: 0.15rem 0.5rem; color: #b72a24; background: none; }
+input[type='checkbox'] { accent-color: var(--green); margin-right: 0.5rem; }
