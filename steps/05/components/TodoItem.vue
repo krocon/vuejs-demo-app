@@ -6,7 +6,11 @@ defineEmits(['toggle', 'remove'])
 <template>
   <li :class="{ done: todo.done }">
     <label>
-      <input type="checkbox" :checked="todo.done" @change="$emit('toggle')" />
+      <input
+        type="checkbox"
+        :checked="todo.done"
+        @change="$emit('toggle')"
+      />
       {{ todo.text }}
     </label>
     <button @click="$emit('remove')">✕</button>

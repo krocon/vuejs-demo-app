@@ -33,11 +33,49 @@ npm run dev
 
 Das Styling (`src/assets/main.css`) ist fertig und wird im Video nicht getippt.
 
+### Video 2 – Pinia und Vue Router
+
+| Kapitel | Stand | Thema | Dateien |
+|---|---|---|---|
+| 9 – Zwei Komponenten, zwei Listen | `steps/09` | das Problem: jeder Aufruf von `useTodos()` hat eine eigene Liste | `components/AppHeader.vue` |
+| 10 – Ein Store mit Pinia | `steps/10` | `createPinia()`, `defineStore()` als Setup-Store | `main.js`, `stores/todos.js` |
+| 11 – Store benutzen | `steps/11` (`11x` = Store zerlegt, Zähler steht) | `useTodosStore()`, `storeToRefs()` | `App.vue`, `components/AppHeader.vue` |
+| 12 – Zwei Seiten | `steps/12` | `createRouter()`, `RouterView`, `RouterLink` | `router/index.js`, `views/ListView.vue`, `views/DoneView.vue` |
+| 13 – Detailseite | `steps/13` | Parameter `:id`, `props: true`, benannte Route, `router.push()` | `views/DetailView.vue`, `components/TodoItem.vue` |
+| 14 – Lazy Loading und 404 | `steps/14` | `() => import(…)`, Auffang-Route | `router/index.js`, `views/NotFound.vue` |
+
+### Video 3 – Vuetify
+
+| Kapitel | Stand | Thema | Dateien |
+|---|---|---|---|
+| 17 – Vuetify einbauen | `steps/17` | `createVuetify()`, `v-app`, `v-app-bar` | `plugins/vuetify.js`, `main.js`, `App.vue` |
+| 18 – Formular | `steps/18` | `v-text-field`, `v-btn`, Hilfsklassen | `views/ListView.vue` |
+| 19 – Tabelle | `steps/19` | `v-data-table`: Spalten, Slots, Suche | `views/ListView.vue` |
+| 20 – Dialog und Snackbar | `steps/20` | `v-dialog`, `v-snackbar` | `views/ListView.vue` |
+| 21 – Eigenes Design | `steps/21` | Theme, `defaults`, Deutsch, hell/dunkel | `plugins/vuetify.js`, `components/AppHeader.vue` |
+
+Ab Stand 17 wird `src/assets/main.css` nicht mehr geladen.
+
+### Video 4 – Sechs Fallen
+
+Das Labor liegt unter `/labor` (`src/labs/`). Der Stand mit `x` zeigt den Fehler, der ohne `x` die Lösung.
+
+| Kapitel | Stand | Falle | Datei |
+|---|---|---|---|
+| 24 | `steps/24x` → `24` | `reactive` zerlegt → `toRefs()` | `labs/Falle1.vue` |
+| 25 | `steps/25x` → `25` | Index als `key` → echte ID | `labs/Falle2.vue` |
+| 26 | `steps/26x` → `26` | Methode im Template → `computed` | `labs/Falle3.vue` |
+| 27 | `steps/27x` → `27` | 100 000 Zeilen tief reaktiv → `shallowRef` | `labs/Falle4.vue` |
+| 28 | `steps/28x` → `28` | alle Kinder rendern neu → stabile Props | `labs/Falle5.vue`, `labs/LabRow.vue` |
+| 29 | `steps/29x` → `29` | 20 000 Elemente im DOM → `v-virtual-scroll` | `labs/Falle6.vue` |
+
+`src/` und die Tests bleiben vorerst auf Stand 06 (Video 1).
+
 ## Prüfen
 
 ```bash
 npm test             # Vitest: useTodos, TodoItem, App
-npm run step -- all  # baut jeden Stand einmal (danach liegt Stand 06 in src/)
+npm run step -- all  # baut jeden Stand einmal, auch die Fehler-Varianten (danach liegt Stand 06 in src/)
 npm run build
 ```
 

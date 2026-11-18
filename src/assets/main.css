@@ -44,3 +44,29 @@ li {
 }
 li button { padding: 0.15rem 0.5rem; color: #b72a24; background: none; }
 input[type='checkbox'] { accent-color: var(--green); margin-right: 0.5rem; }
+
+/* Ab Video 2: Kopfzeile, Navigation, Zähler */
+header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  color: var(--navy);
+}
+header strong { font-size: 1.5rem; }
+nav { display: flex; gap: 0.75rem; flex: 1; }
+a { color: var(--navy); }
+nav a { text-decoration: none; opacity: 0.6; }
+nav a.router-link-exact-active {
+  opacity: 1;
+  border-bottom: 2px solid var(--green);
+}
+.badge {
+  margin-left: auto;
+  padding: 0.15rem 0.6rem;
+  color: #fff;
+  background: var(--green);
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+li a { flex: 1; }

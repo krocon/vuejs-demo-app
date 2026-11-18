@@ -3,12 +3,20 @@ import { ref, watch } from 'vue'
 const KEY = 'merkliste'
 
 export function useTodos() {
-  const todos = ref(JSON.parse(localStorage.getItem(KEY) ?? '[]'))
+  const saved = localStorage.getItem(KEY)
+  const todos = ref(saved ? JSON.parse(saved) : [])
 
-  watch(todos, value => localStorage.setItem(KEY, JSON.stringify(value)), { deep: true })
+  function save() {
+    localStorage.setItem(KEY, JSON.stringify(todos.value))
+  }
+  watch(todos, save, { deep: true })
 
   function add(text) {
-    todos.value.push({ id: crypto.randomUUID(), text: text.trim(), done: false })
+    todos.value.push({
+      id: crypto.randomUUID(),
+      text: text.trim(),
+      done: false,
+    })
   }
 
   function remove(id) {

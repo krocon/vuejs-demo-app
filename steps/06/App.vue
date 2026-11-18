@@ -5,7 +5,9 @@ import { useTodos } from './composables/useTodos'
 
 const { todos, add, remove } = useTodos()
 const text = ref('')
-const open = computed(() => todos.value.filter(t => !t.done).length)
+const open = computed(
+  () => todos.value.filter(t => !t.done).length,
+)
 
 function submit() {
   add(text.value)
@@ -19,7 +21,9 @@ function submit() {
     <input v-model="text" placeholder="Was steht an?" />
     <button :disabled="!text.trim()">Hinzufügen</button>
   </form>
-  <p v-if="todos.length">{{ open }} von {{ todos.length }} offen</p>
+  <p v-if="todos.length">
+    {{ open }} von {{ todos.length }} offen
+  </p>
   <p v-else>Noch nichts zu tun.</p>
   <ul>
     <TodoItem
